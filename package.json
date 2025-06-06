@@ -1,0 +1,38 @@
+{
+  "name": "tetris-online",
+  "displayName": "Free Tetris Online Game - Play Classic Tetris",
+  "version": "0.0.1",
+  "description": "Play classic Tetris free online! Multiple modes, global leaderboards, instant gameplay — no downloads or sign-ups needed.",
+  "author": "Jesse",
+  "scripts": {
+    "dev": "plasmo dev",
+    "build": "plasmo build",
+    "package": "plasmo package",
+    "pkg": "yarn build && yarn package"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "plasmo": "0.89.4",
+    "typescript": "5.2.2"
+  },
+  "manifest": {
+    "permissions": [
+      "tabs",
+      "windows"
+    ],
+    "web_accessible_resources": [
+      {
+        "resources": [
+          "assets/*",
+          "/assets/*"
+        ],
+        "matches": [
+          "<all_urls>"
+        ]
+      }
+    ]
+  }
+}

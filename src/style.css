@@ -1,0 +1,322 @@
+/* 俄罗斯方块游戏选择弹出框样式 */
+/* Chrome 扩展弹出框 - 使用现代化的渐变色彩设计 */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 弹出框主容器 */
+.tetris-popup {
+  width: 800px;
+  min-height: 380px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  overflow: hidden;
+  position: relative;
+}
+
+/* 装饰性背景图案 */
+.tetris-popup::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="tetris" patternUnits="userSpaceOnUse" width="20" height="20"><rect width="20" height="20" fill="none"/><rect width="10" height="10" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23tetris)"/></svg>');
+  animation: float 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes float {
+  0% {
+    transform: translateX(-100px) translateY(-100px);
+  }
+  100% {
+    transform: translateX(100px) translateY(100px);
+  }
+}
+
+/* 弹出框标题区域 */
+.popup-header {
+  text-align: center;
+  margin-bottom: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+.tetris-icon {
+  font-size: 24px;
+  margin-bottom: 6px;
+  display: block;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.popup-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: -0.5px;
+}
+
+.popup-subtitle {
+  font-size: 12px;
+  opacity: 0.9;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+/* 游戏选项容器 */
+.game-options {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+/* 单个游戏选项 */
+.game-option {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  flex: 1;
+  min-width: 0;
+}
+
+/* 游戏选项底部信息和按钮 */
+.game-option-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* 游戏预览视频区域 */
+.game-preview {
+  width: 100%;
+  height: 240px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.3);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.game-option:hover .game-video {
+  transform: scale(1.02);
+}
+
+/* 视频加载状态 */
+.game-preview::before {
+  content: "🎮";
+  position: absolute;
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.6);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.game-option:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* 游戏信息区域 */
+.game-info {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.game-icon {
+  font-size: 20px;
+  margin-right: 8px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.game-details {
+  flex: 1;
+}
+
+.game-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 3px;
+  color: white;
+}
+
+.game-description {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.game-url {
+  font-size: 11px;
+  opacity: 0.6;
+  font-family: "Courier New", monospace;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 8px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+/* 游戏开始按钮 */
+.play-button {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(238, 90, 36, 0.3);
+  width: 100%;
+  white-space: nowrap;
+}
+
+.play-button:hover {
+  background: linear-gradient(135deg, #ff5252, #e53935);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(238, 90, 36, 0.4);
+}
+
+.play-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(238, 90, 36, 0.3);
+}
+
+/* 经典版本按钮特殊样式 */
+.classic-button {
+  background: linear-gradient(135deg, #4ecdc4, #44a08d);
+  box-shadow: 0 4px 12px rgba(68, 160, 141, 0.3);
+}
+
+.classic-button:hover {
+  background: linear-gradient(135deg, #26d0ce, #2bb39a);
+  box-shadow: 0 6px 20px rgba(68, 160, 141, 0.4);
+}
+
+/* 弹出框底部 */
+.popup-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  gap: 20px;
+}
+
+.footer-info {
+  text-align: center;
+}
+
+.footer-text {
+  font-size: 11px;
+  font-weight: 600;
+  margin-bottom: 2px;
+  opacity: 0.9;
+}
+
+.footer-subtext {
+  font-size: 9px;
+  opacity: 0.7;
+  line-height: 1.2;
+}
+
+.footer-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.official-link {
+  flex-shrink: 0;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 10px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  white-space: nowrap;
+}
+
+.leaderboard-link {
+  background: rgba(255, 215, 0, 0.15);
+  border-color: rgba(255, 215, 0, 0.3);
+}
+
+.leaderboard-link:hover {
+  background: rgba(255, 215, 0, 0.25);
+  border-color: rgba(255, 215, 0, 0.4);
+}
+
+.official-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+  text-decoration: none;
+  color: white;
+}
+
+/* 动画效果 */
+.tetris-popup {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* 焦点和可访问性样式 */
+.play-button:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+}
+
+.game-option:focus-within {
+  outline: 2px solid rgba(255, 255, 255, 0.3);
+  outline-offset: 2px;
+}
