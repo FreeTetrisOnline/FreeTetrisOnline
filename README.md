@@ -2,13 +2,19 @@
 
 ![](./assets/home-preview.png)
 
+---
+
 ### [Classic Retro Mode](https://onlinetetris.org/GoodOldTetris)
 
 ![](./assets/good-old-tetris.gif)
 
+---
+
 ### [Modern Enhanced Mode](https://onlinetetris.org/tetris-pc)
 
 ![](./assets/tetris.gif)
+
+---
 
 🧩 **Free to Play Online**
 Enjoy classic Tetris completely free — no downloads, no sign-ups, just click and play.
