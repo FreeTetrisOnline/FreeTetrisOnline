@@ -1,11 +1,13 @@
-## 🌐 [Play Now - Official Website](https://onlinetetris.org/)
+### 🌐 [Play Now - Official Website](https://onlinetetris.org/)
 
-### Game Overview
+![](./assets/home-preview.png)
 
-**Classic Retro Mode**
+### [Classic Retro Mode](https://onlinetetris.org/GoodOldTetris)
+
 ![](./assets/good-old-tetris.gif)
 
-**Modern Enhanced Mode**
+### [Modern Enhanced Mode](https://onlinetetris.org/tetris-pc)
+
 ![](./assets/tetris.gif)
 
 🧩 **Free to Play Online**
